@@ -12,7 +12,7 @@ export default function NeuButton({ onPress, children, style }) {
           sides={["bottom", "right"]}
           offset={[4, 3]} // смещение как в CSS: 4px 3px
           distance={10} // соответствие blur-radius: 4px
-          startColor="rgba(0, 0, 0, 0.2)" // ваша тёмная тень
+          startColor="rgba(0, 0, 0, 0.3)" // ваша тёмная тень
           endColor="rgba(0, 0, 0, 0)" // плавно уходит в прозрачность
           style={styles.wrapper}
           disabled={pressed ? true : false}
@@ -23,7 +23,8 @@ export default function NeuButton({ onPress, children, style }) {
             sides={["top", "left"]}
             offset={[-2, -3]} // -2px -3px
             distance={10} // blur-radius: 4px
-            startColor="rgb(209, 209, 209)" // ваш светлый цвет
+            startColor="rgb(26, 78, 66)"
+            // startColor="rgb(209, 209, 209)" // ваш светлый цвет
             endColor="rgba(245, 244, 244, 0)" // плавная прозрачность
             style={styles.wrapper}
             disabled={pressed ? true : false}
@@ -43,18 +44,18 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   inner: {
-    width: 50,
-    height: 50,
+    width: 45,
+    height: 45,
     borderRadius: 50,
-    backgroundColor: "#c9c9c9",
+    backgroundColor: "#184a3f",
     justifyContent: "center",
     alignItems: "center",
   },
   innerPressed: {
-    backgroundColor: "#c9c9c9",
+    backgroundColor: "#184a3f",
   },
   icon: {
     fontSize: 20,
-    color: "#aaa",
+    color: "#fff",
   },
 });

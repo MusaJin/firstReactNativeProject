@@ -67,24 +67,13 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={styles.container2}>
         <Text style={styles.textStyles}>あなたが嫌い​です</Text>
+        <Text style={styles.textStyles}>私は自分を嫌</Text>
         <TextInput
           style={styles.input}
           value={allString}
           showSoftInputOnFocus={false}
-          // onChangeText={(text) => setNum1(text)}
-          // keyboardType="numeric"
-          // placeholder="Vvedi pervoe chislo"
         />
       </View>
-      {/* <Text style={styles.textStyles}>{operation}</Text>
-      <TextInput
-        style={styles.input}
-        value={num2}
-        onChangeText={(text) => setNum2(text)}
-        keyboardType="numeric"
-        placeholder="Vvedi vtoroe chislo"
-      /> */}
-      {/* <Text style={styles.text2Styles}>Сумма: {result}</Text> */}
       <View style={styles.buttonsWrapper}>
         <View style={styles.numbersWrapper}>
           {numbers.map((num) => (
@@ -126,7 +115,7 @@ export default function App() {
             }}
           >
             <View style={{ transform: [{ rotate: "360deg" }] }}>
-              <Text style={{ fontSize: 30, color: "#aaa" }}>⛧</Text>
+              <Text style={{ fontSize: 30, color: "#fff" }}>⛧</Text>
             </View>
           </NeuButton>
           <NeuButton
@@ -151,18 +140,15 @@ const styles = StyleSheet.create({
   input: {
     height: 50,
     width: "100%",
-    // borderWidth: 0.5,
-    borderBottomWidth: 0.5,
-    borderBottomColor: "#000",
-    // borderRadius: 10,
-    // paddingVertical: 10,
-    fontSize: 20,
+    paddingHorizontal: 30,
+    fontSize: 24,
+    color: "#fff",
   },
   container: {
-    padding: 20,
+    // padding: 20,
     height: "100%",
     justifyContent: "center",
-    backgroundColor: "#c9c9c9",
+    backgroundColor: "#184a3f",
   },
   container2: {
     height: "50%",
@@ -172,7 +158,7 @@ const styles = StyleSheet.create({
   },
   textStyles: {
     textAlign: "center",
-    color: "#000",
+    color: "#fff",
     fontWeight: 700,
     fontFamily: "Montserrat",
     fontSize: 24,
@@ -187,20 +173,20 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   buttonsWrapper: {
-    paddingTop: 10,
     // flex: 1,
-    height: "50%",
-    paddingRight: "10%",
+    height: "40%",
+    // paddingRight: "10%",
     width: "100%",
     gap: 20,
     // flexWrap: "wrap",
     flexDirection: "row",
     alignItems: "flex-start",
-    justifyContent: "center",
+    // justifyContent: "flex-start",
+    // backgroundColor:'black'
   },
   numbersWrapper: {
-    // flex: 1,
-    width: "75%",
+    flex: 3,
+    // width: "75%",
     flexWrap: "wrap",
     gap: 20,
     flexDirection: "row",
@@ -208,9 +194,11 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   operationsWrapper: {
-    // flex: 1,
+    flex: 1,
     gap: 20,
-    width: "10%",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    // width: "10%",
   },
   btn: {
     // flexBasis: 70,
@@ -219,6 +207,6 @@ const styles = StyleSheet.create({
   },
   buttonAlt: {
     // opacity: 0.8, // чуть полупрозрачный при нажатии
-    shadowColor: "#c9c9c9",
+    shadowColor: "#184a3f",
   },
 });
