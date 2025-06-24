@@ -1,17 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import {
-  Button,
-  Pressable,
   SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
-import NeuButton from "./ui/NeuButton";
+import NeuButton from "../shared/ui/NeuButton";
+import { colors } from "../shared/theme/colors";
 
-export default function App() {
+export default function CalculatorPage() {
   const [click, setClick] = useState(false);
   const numbers = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "00", "0"];
 
@@ -64,7 +63,7 @@ export default function App() {
   }, [num1, num2, operation, click]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.container2}>
         <Text style={styles.textStyles}>あなたが嫌い​です</Text>
         <Text style={styles.textStyles}>私は自分を嫌</Text>
@@ -115,7 +114,7 @@ export default function App() {
             }}
           >
             <View style={{ transform: [{ rotate: "360deg" }] }}>
-              <Text style={{ fontSize: 30, color: "#fff" }}>⛧</Text>
+              <Text style={{ fontSize: 30, color: colors.white }}>⛧</Text>
             </View>
           </NeuButton>
           <NeuButton
@@ -131,8 +130,8 @@ export default function App() {
           </NeuButton>
         </View>
       </View>
-      <StatusBar style="auto" />
-    </SafeAreaView>
+      {/* <StatusBar style="auto" /> */}
+    </View>
   );
 }
 
@@ -142,13 +141,14 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: 30,
     fontSize: 24,
-    color: "#fff",
+    color: colors.white,
   },
   container: {
     // padding: 20,
-    height: "100%",
+    flex: 1,                   // ← растягиваем по высоте
+    width: "100%",             // ← растягиваем по ширине
     justifyContent: "center",
-    backgroundColor: "#184a3f",
+    backgroundColor: colors.greenMain,
   },
   container2: {
     height: "50%",
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   },
   textStyles: {
     textAlign: "center",
-    color: "#fff",
+    color: colors.white,
     fontWeight: 700,
     fontFamily: "Montserrat",
     fontSize: 24,
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   text2Styles: {
     padding: 16,
     textAlign: "center",
-    color: "#000",
+    color: colors.black,
     fontWeight: 700,
     fontFamily: "Montserrat",
     fontSize: 20,
@@ -207,6 +207,6 @@ const styles = StyleSheet.create({
   },
   buttonAlt: {
     // opacity: 0.8, // чуть полупрозрачный при нажатии
-    shadowColor: "#184a3f",
+    shadowColor: colors.greenMain,
   },
 });
