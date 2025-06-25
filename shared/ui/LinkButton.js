@@ -2,23 +2,25 @@ import { Animated, Pressable, StyleSheet, Text, View } from "react-native";
 import { colors } from "../theme/colors";
 import { useRef } from "react";
 import { router } from "expo-router";
+import { fonts } from "../theme/fonst";
+import { borders } from "../theme/borders";
 
 export default function LinkButton({ onPress, children, routeTo, style }) {
   const anim = useRef(new Animated.Value(0)).current;
 
   const handlePressIn = () => {
     Animated.timing(anim, {
-      toValue: 1,
-      duration: 200,
-      useNativeDriver: false,
+      toValue: 5,
+      duration: 100,
+      useNativeDriver: true,
     }).start();
   };
 
   const handlePressOut = () => {
     Animated.timing(anim, {
       toValue: 0,
-      duration: 200,
-      useNativeDriver: false,
+      duration: 100,
+      useNativeDriver: true,
     }).start(() => {
       routeTo ? router.push(routeTo) : null;
     });
@@ -26,13 +28,13 @@ export default function LinkButton({ onPress, children, routeTo, style }) {
 
   // Интерполяция фона: от прозрачного к белому
   const backgroundColor = anim.interpolate({
-    inputRange: [0, 1],
+    inputRange: [0, 5],
     outputRange: ["transparent", colors.white],
   });
 
   // Интерполяция цвета текста: от белого к зелёному
   const textColor = anim.interpolate({
-    inputRange: [0, 1],
+    inputRange: [0, 5],
     outputRange: [colors.white, colors.greenMain],
   });
 
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
   button: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 10,
+    borderRadius: borders.br10,
     borderColor: colors.white,
     borderWidth: 1,
   },
@@ -67,8 +69,8 @@ const styles = StyleSheet.create({
   },
   buttonTitle: {
     color: colors.white,
-    fontSize: 20,
-    fontWeight: 500,
+    fontSize: fonts.fs21,
+    fontWeight: fonts.fw500,
     textAlign: "center",
   },
 });

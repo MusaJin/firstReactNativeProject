@@ -1,14 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Text, TextInput, View } from "react-native";
 import NeuButton from "../shared/ui/NeuButton";
 import { colors } from "../shared/theme/colors";
+import { fonts } from "../shared/theme/fonst";
+import { gaps } from "../shared/theme/gaps";
 
 export default function CalculatorPage() {
   const [click, setClick] = useState(false);
@@ -140,13 +136,13 @@ const styles = StyleSheet.create({
     height: 50,
     width: "100%",
     paddingHorizontal: 30,
-    fontSize: 24,
+    fontSize: fonts.fs24,
     color: colors.white,
   },
   container: {
     // padding: 20,
-    flex: 1,                   // ← растягиваем по высоте
-    width: "100%",             // ← растягиваем по ширине
+    flex: 1, // ← растягиваем по высоте
+    width: "100%", // ← растягиваем по ширине
     justifyContent: "center",
     backgroundColor: colors.greenMain,
   },
@@ -159,17 +155,17 @@ const styles = StyleSheet.create({
   textStyles: {
     textAlign: "center",
     color: colors.white,
-    fontWeight: 700,
+    fontWeight: fonts.fw700,
     fontFamily: "Montserrat",
-    fontSize: 24,
+    fontSize: fonts.fs24,
   },
   text2Styles: {
     padding: 16,
     textAlign: "center",
     color: colors.black,
-    fontWeight: 700,
+    fontWeight: fonts.fw700,
     fontFamily: "Montserrat",
-    fontSize: 20,
+    fontSize: fonts.fs20,
     lineHeight: 24,
   },
   buttonsWrapper: {
@@ -177,7 +173,7 @@ const styles = StyleSheet.create({
     height: "40%",
     // paddingRight: "10%",
     width: "100%",
-    gap: 20,
+    gap: gaps.g20,
     // flexWrap: "wrap",
     flexDirection: "row",
     alignItems: "flex-start",
@@ -188,14 +184,14 @@ const styles = StyleSheet.create({
     flex: 3,
     // width: "75%",
     flexWrap: "wrap",
-    gap: 20,
+    gap: gaps.g20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
   },
   operationsWrapper: {
     flex: 1,
-    gap: 20,
+    gap: gaps.g20,
     justifyContent: "center",
     alignItems: "flex-start",
     // width: "10%",

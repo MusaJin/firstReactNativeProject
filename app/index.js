@@ -4,6 +4,7 @@ import { View, StyleSheet, Button } from "react-native";
 import { Link } from "expo-router";
 import LinkButton from "../shared/ui/LinkButton";
 import { colors } from "../shared/theme/colors";
+import { gaps } from "../shared/theme/gaps";
 
 export default function HomeScreen() {
   return (
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
-    gap: 20,
+    gap: gaps.g20,
     backgroundColor: colors.greenMain,
     justifyContent: "center",
     alignItems: "center",

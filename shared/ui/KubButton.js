@@ -5,7 +5,7 @@ export default function KubButton({ onPress, children, style }) {
   return (
     <Pressable onPress={onPress ? onPress : null}>
       {({ pressed }) => (
-        <View style={[styles.button, style]}>
+        <View style={[styles.button, style, pressed ? { opacity: 0.7 } : {}]}>
           <Text style={[styles.buttonTitle]}>{children}</Text>
         </View>
       )}
