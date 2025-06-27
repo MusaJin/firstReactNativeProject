@@ -1,9 +1,12 @@
 import {
+  Alert,
   Image,
+  Platform,
   Pressable,
   StyleSheet,
   Text,
   TextInput,
+  ToastAndroid,
   View,
 } from "react-native";
 import { colors } from "../shared/theme/colors";
@@ -11,45 +14,69 @@ import KubButton from "../shared/ui/KubButton";
 import { router } from "expo-router";
 import { useState } from "react";
 import KubInput from "../shared/ui/KubInput";
+import ErrorNotification from "../shared/ui/ErrorNotification";
 
 export default function LoginPage() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [alertVis, setAlertVis] = useState(false);
   const handleVisiblePassword = () => {
     setIsVisible(!isVisible);
     // console.log(isVisible);
   };
 
-  const eyeIcon = isVisible
+  const eyeIcon = !isVisible
     ? require("../shared/assets/images/eyeOpen.png")
     : require("../shared/assets/images/eyeClose.png");
+
+  const alert = () => {
+    // Alert
+    // Alert.alert("ERROR", "You made error, user! As usual.", [
+    //   {
+    //     text: "Ok",
+    //     onPress: () => {
+    //       console.log("Sasasasaaas");
+    //     },
+    //     style: "cancel",
+    //   },
+    // ]);
+    if (Platform.OS === "android") {
+      // ToastAndroid.showWithGravity(
+      //   "ERROR AAAAAAAAAAAAAAAAAAAAA",
+      //   ToastAndroid.SHORT,
+      //   ToastAndroid.BOTTOM
+      // );
+      setAlertVis(true);
+      setTimeout(() => {
+        setAlertVis(false);
+      }, 3000);
+    }
+  };
   return (
-    <View style={styles.mainContainer}>
-      <Image
-        source={require("../shared/assets/images/user.png")}
-        style={styles.image}
-      />
-      <View style={styles.inputsContainer}>
-        <KubInput keyboardType={"email-address"} placeholder={"Email"} />
-        <View>
-          <KubInput placeholder={"Пароль"} secureTextEntry={isVisible} />
-          <Pressable
-            style={styles.eyeImageContainer}
-            onPress={handleVisiblePassword}
-          >
-            <Image source={eyeIcon} style={styles.eyeImage} />
-          </Pressable>
+    <>
+      <ErrorNotification text={"Error"} isVisible={alertVis} />
+      <View style={styles.mainContainer}>
+        <Image
+          source={require("../shared/assets/images/user.png")}
+          style={styles.image}
+        />
+        <View style={styles.inputsContainer}>
+          <KubInput keyboardType={"email-address"} placeholder={"Email"} />
+          <View>
+            <KubInput placeholder={"Пароль"} secureTextEntry={isVisible} />
+            <Pressable
+              style={styles.eyeImageContainer}
+              onPress={handleVisiblePassword}
+            >
+              <Image source={eyeIcon} style={styles.eyeImage} />
+            </Pressable>
+          </View>
+          <KubButton style={styles.kubStyles} onPress={alert}>
+            Войти
+          </KubButton>
         </View>
-        <KubButton
-          style={styles.kubStyles}
-          onPress={() => {
-            router.push("/");
-          }}
-        >
-          Войти
-        </KubButton>
+        <Text style={styles.title}>Восстановить пароль</Text>
       </View>
-      <Text style={styles.title}>Восстановить пароль</Text>
-    </View>
+    </>
   );
 }
 

@@ -5,17 +5,18 @@ import { Link } from "expo-router";
 import LinkButton from "../shared/ui/LinkButton";
 import { colors } from "../shared/theme/colors";
 import { gaps } from "../shared/theme/gaps";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <LinkButton routeTo={"/calculator"} style={styles.btn}>
         Калькулятор
       </LinkButton>
       <LinkButton routeTo={"/login"} style={styles.btn}>
         Login
       </LinkButton>
-    </View>
+    </SafeAreaView>
   );
 }
 

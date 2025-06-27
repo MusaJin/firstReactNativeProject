@@ -21,9 +21,8 @@ export default function LinkButton({ onPress, children, routeTo, style }) {
       toValue: 0,
       duration: 100,
       useNativeDriver: true,
-    }).start(() => {
-      routeTo ? router.push(routeTo) : null;
-    });
+    }).start();
+    routeTo ? router.push(routeTo) : null;
   };
 
   // Интерполяция фона: от прозрачного к белому
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   buttonTitle: {
-    color: colors.white,
+    // color: colors.white,
     fontSize: fonts.fs21,
     fontWeight: fonts.fw500,
     textAlign: "center",

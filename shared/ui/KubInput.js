@@ -8,6 +8,7 @@ export default function KubInput({
   keyboardType,
   secureTextEntry,
 }) {
+  
   return (
     <TextInput
       keyboardType={keyboardType ? keyboardType : "default"}

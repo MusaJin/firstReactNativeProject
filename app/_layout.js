@@ -3,11 +3,13 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Host } from "react-native-portalize";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { colors } from "../shared/theme/colors";
+import { StatusBar } from "react-native";
 
 export default function Layout() {
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: colors.greenMain }}>
       <SafeAreaProvider>
+        <StatusBar />
         <Host>
           <Stack
             screenOptions={{
