@@ -46,13 +46,13 @@ export default function ErrorNotification({ isVisible, text }) {
         setMounted(false);
       });
     }
-  }, [isVisible, opacity, translateY]);
+  }, [isVisible, translateY]);
 
   if (!mounted) return null;
 
   return (
     <Animated.View
-      style={[styles.errorContainer, { opacity, transform: [{ translateY }] }]}
+      style={[styles.errorContainer, { transform: [{ translateY }] }]}
     >
       <Text style={styles.errorText}>{text}</Text>
     </Animated.View>
